@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import CommentList from "./CommentList.jsx";
 import AddComment from "./AddComment";
+import ErrorMessage from "../allTheBooks/ErrorMessage.jsx";
+import LoadingMessage from "../allTheBooks/LoadingMessage.jsx";
 
 const CommentArea = ({ asin }) => {
     const [comments, setComments] = useState([]);
@@ -44,8 +46,8 @@ const CommentArea = ({ asin }) => {
 
     return (
         <div className="text-center">
-            {/* {isLoading && <Loading />}
-            {isError && <Error />} */}
+            {isLoading && <LoadingMessage />}
+            {isError && <ErrorMessage />}
             <AddComment asin={asin} getComments={getComments} />
             <CommentList commentsToShow={comments} getComments={getComments} />
         </div>
