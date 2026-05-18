@@ -112,3 +112,16 @@ code {
     padding: 4px 8px;
     background: var(--code-bg);
 }
+
+.light-theme {
+    background-color: white;
+    color: black;
+    min-height: 100vh;
+}
+
+/* DARK: background grigio navbar Bootstrap */
+.dark-theme {
+    background-color: #343a40;
+    color: white;
+    min-height: 100vh;
+}

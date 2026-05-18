@@ -2,7 +2,7 @@ import Alert from "react-bootstrap/Alert";
 
 const Welcome = () => {
     return (
-        <Alert variant="primary">
+        <Alert style={{ backgroundColor: "#CFE2FF" }}>
             <p>Hello there! 👋 Welcome to EpiBooks!</p>
         </Alert>
     );

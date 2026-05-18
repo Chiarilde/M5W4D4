@@ -10,7 +10,7 @@ const NotFound = () => (
                     alt="not found"
                     style={{ width: "550px", marginBottom: "20px" }}
                 />
-                <h3>Pagina non trovata!</h3>
+                <h3>Ops, pagina non trovata!</h3>
             </div>
         </Col>
     </Row>
