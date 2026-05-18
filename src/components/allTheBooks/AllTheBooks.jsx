@@ -17,7 +17,7 @@ const AllTheBooks = ({ searchBook }) => {
                         )
                         .map((book) => {
                             return (
-                                <Col xs={12} md={4} key={book.asin}>
+                                <Col xs={12} lg={6} xl={4} key={book.asin}>
                                     <SingleBook
                                         book={book}
                                         selected={selected}

@@ -43,7 +43,7 @@ const CommentArea = ({ asin }) => {
     }, [asin]);
 
     return (
-        <div className="text-center" style={{ border: "2px solid blue" }}>
+        <div className="text-center">
             {/* {isLoading && <Loading />}
             {isError && <Error />} */}
             <AddComment asin={asin} getComments={getComments} />

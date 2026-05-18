@@ -32,7 +32,7 @@ const AddComment = ({ asin, getComments }) => {
             );
             if (response.ok) {
                 getComments();
-                alert("Recensione inviata");
+                alert("La tua recensione è stata inviata! 🎉");
                 setComment({
                     comment: "",
                     rate: 1,
@@ -47,10 +47,10 @@ const AddComment = ({ asin, getComments }) => {
     };
 
     return (
-        <div className="my-3">
+        <div className="my-2">
             <Form onSubmit={sendComment}>
                 <Form.Group className="mb-2">
-                    <Form.Label>Recensione</Form.Label>
+                    <Form.Label>Scrivi Recensione</Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="Inserisci il testo..."
@@ -82,7 +82,7 @@ const AddComment = ({ asin, getComments }) => {
                         <option value={5}>⭐⭐⭐⭐⭐</option>
                     </Form.Control>
                 </Form.Group>
-                <Button variant="info" type="submit">
+                <Button variant="primary" type="submit">
                     Invia
                 </Button>
             </Form>

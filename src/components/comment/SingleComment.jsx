@@ -14,10 +14,10 @@ const SingleComment = ({ comment, getComments }) => {
                 },
             );
             if (response.ok) {
-                alert("Recensione cancellata");
+                alert("Recensione cancellata con successo!");
                 getComments();
             } else {
-                throw new Error("Recensione non cancellata");
+                throw new Error("Ops, la recensione non è stata cancellata!");
             }
         } catch (e) {
             alert(e);
@@ -25,15 +25,14 @@ const SingleComment = ({ comment, getComments }) => {
     };
 
     return (
-        <ListGroup.Item>
+        <ListGroup.Item className="d-flex justify-content-between align-items-center">
             {comment.comment}
             <p>{"⭐".repeat(comment.rate)}</p>
             <Button
-                variant="danger"
-                className="ms-2"
+                className="border-0 bg-transparent ms-2"
                 onClick={() => deleteComment(comment._id)}
             >
-                Elimina
+                ❌
             </Button>
         </ListGroup.Item>
     );
