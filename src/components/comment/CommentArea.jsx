@@ -28,20 +28,48 @@ const CommentArea = ({ asin }) => {
                 setIsLoading(false);
                 setIsError(false);
             } else {
-                console.log("error");
+                console.error("error");
                 setIsLoading(false);
                 setIsError(true);
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
             setIsLoading(false);
             setIsError(true);
         }
     };
     useEffect(() => {
-        if (asin) {
-            getComments();
-        }
+        if (!asin) return;
+
+        const fetchComments = async () => {
+            setIsLoading(true);
+
+            try {
+                const response = await fetch(
+                    "https://striveschool-api.herokuapp.com/api/comments/" +
+                        asin,
+                    {
+                        headers: {
+                            Authorization:
+                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YTA5ZjgxYTk5NGE2NzAwMTU1ZjZkMDAiLCJpYXQiOjE3NzkwNDE5MzUsImV4cCI6MTc4MDI1MTUzNX0.SCA7t28FXcY8m2kJ_u3Jfwvh0VwkDvoyz6USvFhn-hE",
+                        },
+                    },
+                );
+
+                if (!response.ok) throw new Error("Error");
+
+                const data = await response.json();
+                setComments(data);
+                setIsError(false);
+            } catch (error) {
+                console.error(error);
+                setIsError(true);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchComments();
     }, [asin]);
 
     return (
