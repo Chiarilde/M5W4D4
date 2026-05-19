@@ -25,7 +25,10 @@ const SingleComment = ({ comment, getComments }) => {
     };
 
     return (
-        <ListGroup.Item className="d-flex justify-content-between align-items-center">
+        <ListGroup.Item
+            className="d-flex justify-content-between align-items-center"
+            data-testid="single-comment"
+        >
             {comment.comment}
             <p>{"⭐".repeat(comment.rate)}</p>
             <Button
